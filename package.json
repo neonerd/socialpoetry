@@ -1,0 +1,26 @@
+{
+  "name": "social-poetry",
+  "description": "Social poetry",
+  "version": "1.0.0",
+  "homepage": "https://github.com/neonerd/social-poetry",
+  "author": {
+    "name": "Andrej Sykora",
+    "email": "as@andrejsykora.com",
+    "url": "http://andrejsykora.com"
+  },
+  "main": "",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-less": "~0.8.1",
+    "grunt-contrib-connect": "~0.5.0",
+    "twit": "~1.1.11",
+    "express": "~3.4.4"
+  },
+  "keywords": []
+}

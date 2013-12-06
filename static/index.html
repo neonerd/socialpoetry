@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400' rel='stylesheet' type='text/css'>
+
+	<!-- main dev stylesheet -->
+	<link rel = "stylesheet" href = "./socialpoetry/css/site-dev.css">
+	<!-- main prod stylesheet -->
+	<!--
+	<link rel = "stylesheet" href = "./css/site-prod.css">
+	-->	
+
+	<script src = "./socialpoetry/js/modernizr.min.js"></script>
+
+	<title>#socialpoetry</title>
+</head>
+<body>
+
+	<!-- YOUR CODE -->
+
+	<div class="container" id = "introduction">
+		
+		<div class="row">
+			
+			<div class="col-xs-12">
+				
+				<h1>#socialpoetry</h1>
+
+				<p>
+					social poetry is a simple excercise in creativity that yields unusual results. the rules are following:
+				</p>
+
+				<ul>
+					<li>pick a hashtag.</li>
+					<li>wait until we load a list of tweets containing this hashtag for you.</li>
+					<li>try to compose a poem by chosing tweets and reorganizing them.</li>
+					<li>only minor editorial changes are allowed: adding whitespace &amp; interpunction, removing unecessary hashtags / mentions and switching lower/upper case.</li>
+					<li>after you are done, you can save the result into our database and share the link to it with rest of the world.</li>
+				</ul>
+
+				<a href = "#/search" class = "button">
+					Start Now
+				</a>
+
+				<a href = "#/list" class = "button">
+					View Poems
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class = "container" id="search">
+		
+		<div class="row">
+
+			<div class="col-xs-12">
+
+				<h1>#search</h1>
+
+				<form action = "" method = "post" onsubmit = "actions.doSearch($('#search_hashtag').val()); return false;">
+
+					<input type = "text" name = "search_hashtag" id = "search_hashtag" placeholder = "Type your hashtag">
+
+				</form>
+
+				<a href="javascript: void(0);" class="button" onclick = "$('#search_hashtag').parent().submit(); $(this).next().removeClass('hidden');">Search</a>
+				<a href="javascript: void(0);" class="button hidden" onclick = "window.location='#/write/' + $('#search_hashtag').val();">Write</a>
+
+				<div id = "search-results">
+
+					
+
+
+				</div>
+
+			</div>
+			
+		</div>
+
+	</div>
+
+	<div class="container" id="write">
+		
+		<div class="row">
+
+			<div class="col-xs-12">
+
+				<h1>#write</h1>
+
+			</div>
+
+			<form action="" method = "post" onsubmit = "actions.doSave(); return false;" id = "write-form">
+				
+				<input type = "hidden" name = "write-hashtag" id = "write-hashtag">
+
+				<textarea name = "poem" id = "write-poem">
+
+				</textarea>
+
+				<a href="javascript: void(0);" class="button" onclick = "$('#write-form').submit();">Submit</a>
+
+			</form>
+
+	
+			<a href="#/search" class="button">Go back</a>
+			
+		</div>
+
+	</div>
+
+	<div class="container" id="list">
+
+		<div class="row">
+			
+			<div class="col-xs-12">
+
+				<h1>#list</h1>
+
+				<input type = "text" name = "filter_hashtag" id = "filter_hashtag" placeholder = "Filter by hashtag" onkeyup = "actions.doList($(this).val());">
+
+				<div id = "list-results">
+
+					
+
+				</div>
+
+				<a href="#/" class="button">Go back</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="container" id="view">
+
+		<div class="row">
+			
+			<div class="col-xs-12">
+
+				<h1 id = "view-title">#???</h1>
+
+				<pre id = "view-poem">
+
+				</pre>
+
+				<p><small>(you can share this poem by simply copying the URL in the address bar)
+
+				<a href="#/list" class="button">Go back</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- YOUR CODE -->
+
+	<!-- SCRIPTS -->
+	<script src = "./socialpoetry/js/jquery.min.js"></script>	
+	<script src = "./socialpoetry/js/sammy.min.js"></script>
+	<script src = "./socialpoetry/js/site.js"></script>
+
+</body>
+</html>
